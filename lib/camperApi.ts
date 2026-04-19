@@ -4,16 +4,20 @@ import axios from "axios";
 const DEFAULT_API_URL = "https://campers-api.goit.study";
 const API_BASE = process.env.API_URL?.replace(/\/+$/, "") || DEFAULT_API_URL;
 
-// Создаём экземпляр axios с настройками
 const api = axios.create({
   baseURL: API_BASE,
-  headers: {
-    "Content-Type": "application/json",
-  },
-  timeout: 10000, // 10 секунд
+  headers: { "Content-Type": "application/json" },
+  timeout: 10000,
 });
 
-// ==================== ТИПЫ (те же, что и раньше) ====================
+// ==================== ТИПЫ ====================
+
+export interface CamperFilters {
+  form?: string;
+  transmission?: string;
+  engine?: string;
+  location?: string;
+}
 
 export interface CamperListItemDto {
   id: string;
@@ -71,7 +75,7 @@ export interface CamperDetailsEntity {
   tank: string;
   consumption: string;
   transmission: string;
-  engine: string[];
+  engine: string | string[];
   amenities: string[];
   gallery: CamperImageEntity[];
   createdAt: string;
@@ -96,15 +100,19 @@ export interface BookingRequestResponseDto {
   message: string;
 }
 
-// API ФУНКЦИИ
+// ==================== API ФУНКЦИИ ====================
 
 export async function getAllCampers(
   page = 1,
   perPage = 4,
+  filters?: CamperFilters,
 ): Promise<CamperListResponseDto> {
-  const { data } = await api.get("/campers", {
-    params: { page, perPage },
-  });
+  const params: Record<string, unknown> = { page, perPage };
+  if (filters?.form) params.form = filters.form;
+  if (filters?.transmission) params.transmission = filters.transmission;
+  if (filters?.engine) params.engine = filters.engine;
+  if (filters?.location) params.location = filters.location;
+  const { data } = await api.get("/campers", { params });
   return data;
 }
 
@@ -121,18 +129,6 @@ export async function getCamperById(id: string): Promise<CamperDetailsEntity> {
 export async function getCamperReviews(id: string): Promise<ReviewEntity[]> {
   const { data } = await api.get(`/campers/${id}/reviews`);
   return data;
-}
-
-export async function getBackendStatus(): Promise<string> {
-  const { data } = await api.get("/campers", {
-    params: { page: 1, perPage: 3 },
-  });
-
-  if (Array.isArray(data.campers) && data.campers.length > 0) {
-    return `Backend работает: получено ${data.campers.length} кемперов, первый: ${data.campers[0].name}`;
-  }
-
-  return "Backend работает, но не удалось получить кемперы.";
 }
 
 export async function createBookingRequest(
