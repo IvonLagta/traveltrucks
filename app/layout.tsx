@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import SiteHeader from "@/components/header/header";
 import Providers from "./providers";
-import styles from "./layout.module.css";
+import css from "./layout.module.css";
 import "./globals.css";
 
 const inter = Inter({
@@ -21,14 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${inter.variable} ${styles.html}`}>
-      <body className={styles.body}>
+    <html lang="en" className={`${inter.variable} ${css.html}`}>
+      <body className={css.body}>
         <Providers>
-          <div className={styles.container}>
+          <div className={css.container}>
             <SiteHeader />
-            <main className={styles.main}>{children}</main>
+            <main className={css.main}>{children}</main>
           </div>
         </Providers>
       </body>

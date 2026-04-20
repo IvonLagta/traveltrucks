@@ -1,4 +1,3 @@
-// lib/camperApi.ts
 import axios from "axios";
 
 const DEFAULT_API_URL = "https://campers-api.goit.study";
@@ -9,8 +8,6 @@ const api = axios.create({
   headers: { "Content-Type": "application/json" },
   timeout: 10000,
 });
-
-// ==================== ТИПЫ ====================
 
 export interface CamperFilters {
   form?: string;
@@ -99,8 +96,6 @@ export interface BookingRequestDto {
 export interface BookingRequestResponseDto {
   message: string;
 }
-
-// ==================== API ФУНКЦИИ ====================
 
 export async function getAllCampers(
   page = 1,
