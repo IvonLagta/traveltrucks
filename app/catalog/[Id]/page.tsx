@@ -1,10 +1,8 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isAxiosError } from "axios";
 import BookingForm from "@/components/booking-form/booking-form";
 import CamperGallery from "@/components/camper-gallery/camper-gallery";
 import CamperReviews from "@/components/camper-reviews/camper-reviews";
-import CamperSpecs from "@/components/camper-specs/camper-specs";
 import { getCamperById, getCamperReviews } from "@/lib/camperApi";
 import css from "./page.module.css";
 
@@ -28,77 +26,93 @@ export default async function CamperDetailPage({ params }: PageProps) {
       notFound();
     }
     const message =
-      isAxiosError(error) && error.message ? error.message : "Невідома помилка";
+      isAxiosError(error) && error.message ? error.message : "Unknown error";
     return (
       <main className={css.errorPage}>
-        <h1 className={css.errorTitle}>Помилка</h1>
-        <p className={css.errorText}>
-          Не вдалося завантажити кемпер: {message}.
-        </p>
-        <Link href="/catalog" className={css.errorLink}>
-          ← Назад до каталогу
-        </Link>
+        <h1 className={css.errorTitle}>Error</h1>
+        <p className={css.errorText}>Failed to load camper: {message}.</p>
       </main>
     );
   }
 
-  const engineText = Array.isArray(camper.engine)
-    ? camper.engine.join(", ")
-    : camper.engine;
+  const formatAmenityLabel = (value: string) =>
+    value
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, (char) => char.toUpperCase());
 
   return (
     <main className={css.page}>
-      <div className={css.header}>
-        <div>
-          <h1 className={css.title}>{camper.name}</h1>
-          <p className={css.meta}>{camper.location}</p>
-          <p className={css.metaSmall}>
-            ⭐ {camper.rating.toFixed(1)} · {camper.totalReviews} відгуків
-          </p>
-        </div>
-        <div className={css.headerActions}>
-          <span className={css.price}>€{camper.price.toLocaleString()}</span>
-          <Link href="/catalog" className={css.backLink}>
-            ← Каталог
-          </Link>
+      <div className={css.topSection}>
+        <CamperGallery camperName={camper.name} gallery={camper.gallery} />
+
+        <div className={css.rightPanel}>
+          <div className={css.info}>
+            <h1 className={css.title}>{camper.name}</h1>
+            <ul className={css.detailsList}>
+              <li className={css.detailItem}>
+                <svg className={css.iconStar} aria-hidden="true">
+                  <use href="/icons.svg#star" />
+                </svg>
+                {camper.rating.toFixed(1)}({camper.totalReviews} Reviews)
+              </li>
+              <li className={css.detailItem}>
+                <svg className={css.icon} aria-hidden="true">
+                  <use href="/icons.svg#map" />
+                </svg>
+                {camper.location}
+              </li>
+            </ul>
+            <div className={css.price}>€{camper.price}</div>
+            <p className={css.description}>{camper.description}</p>
+          </div>
+
+          <div className={css.specs}>
+            {camper.amenities.length > 0 && (
+              <section className={css.panel}>
+                <h2 className={css.panelTitle}>Vehicle details</h2>
+                <div className={css.amenities}>
+                  {camper.amenities.map((item) => (
+                    <span key={item} className={css.amenity}>
+                      {formatAmenityLabel(item)}
+                    </span>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            <section className={css.specsSection}>
+              <ul className={css.specsList}>
+                <li className={css.specsItem}>
+                  <span className={css.specsLabel}>Form</span>
+                  <span className={css.specsValue}>{camper.form}</span>
+                </li>
+                <li className={css.specsItem}>
+                  <span className={css.specsLabel}>Length</span>
+                  <span className={css.specsValue}>{camper.length}</span>
+                </li>
+                <li className={css.specsItem}>
+                  <span className={css.specsLabel}>Width</span>
+                  <span className={css.specsValue}>{camper.width}</span>
+                </li>
+                <li className={css.specsItem}>
+                  <span className={css.specsLabel}>Height</span>
+                  <span className={css.specsValue}>{camper.height}</span>
+                </li>
+                <li className={css.specsItem}>
+                  <span className={css.specsLabel}>Tank</span>
+                  <span className={css.specsValue}>{camper.tank}</span>
+                </li>
+                <li className={css.specsItem}>
+                  <span className={css.specsLabel}>Consumption</span>
+                  <span className={css.specsValue}>{camper.consumption}</span>
+                </li>
+              </ul>
+            </section>
+          </div>
         </div>
       </div>
-
-      <CamperGallery camperName={camper.name} gallery={camper.gallery} />
-
-      <div className={css.content}>
-        <div className={css.main}>
-          <section className={css.panel}>
-            <h2 className={css.panelTitle}>Опис</h2>
-            <p className={css.description}>{camper.description}</p>
-          </section>
-
-          <CamperSpecs
-            form={camper.form}
-            engine={engineText}
-            transmission={camper.transmission}
-            length={camper.length}
-            width={camper.width}
-            height={camper.height}
-            tank={camper.tank}
-            consumption={camper.consumption}
-          />
-
-          {camper.amenities.length > 0 && (
-            <section className={css.panel}>
-              <h2 className={css.panelTitle}>Зручності</h2>
-              <div className={css.amenities}>
-                {camper.amenities.map((item) => (
-                  <span key={item} className={css.amenity}>
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </section>
-          )}
-
-          <CamperReviews reviews={reviews} />
-        </div>
+      <div className={css.bottomSection}>
+        <CamperReviews reviews={reviews} />
 
         <aside>
           <BookingForm camperId={camperId} />

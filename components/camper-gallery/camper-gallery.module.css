@@ -1,10 +1,79 @@
-.item {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
+.section {
+  width: 638px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.mainFrame {
+  width: 638px;
+  height: 505px;
+  border-radius: 17px;
   overflow: hidden;
+  position: relative;
+}
+
+.mainSlide {
+  position: relative;
+  width: 638px;
+  height: 505px;
+}
+
+.thumbsList {
+  width: 638px;
+  height: 144px;
+  display: flex;
+  gap: 32px;
+}
+
+.thumbButton {
+  width: 136px;
+  height: 144px;
+  padding: 0;
+  border: none;
+  appearance: none;
+  background: transparent;
+  border-radius: 17px;
+  overflow: hidden;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.thumbWrap {
+  box-sizing: border-box;
+  position: relative;
+  width: 136px;
+  height: 144px;
+  border: 3px solid transparent;
+  border-radius: 17px;
+  overflow: hidden;
+  background: transparent;
+}
+
+.thumbButtonActive .thumbWrap {
+  border-color: #6fae8a;
 }
 
 .image {
   object-fit: cover;
+}
+
+.edgeZone {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 10;
+  width: 96px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.edgeZonePrev {
+  left: 12px;
+}
+
+.edgeZoneNext {
+  right: 12px;
 }

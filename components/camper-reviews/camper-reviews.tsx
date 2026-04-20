@@ -8,9 +8,9 @@ interface CamperReviewsProps {
 export default function CamperReviews({ reviews }: CamperReviewsProps) {
   return (
     <section className={css.section}>
-      <h2 className={css.title}>Відгуки ({reviews.length})</h2>
+      <h2 className={css.title}>Reviews</h2>
       {reviews.length === 0 ? (
-        <p className={css.empty}>Відгуків поки що немає.</p>
+        <p className={css.empty}>No reviews yet.</p>
       ) : (
         <ul className={css.list}>
           {reviews.map((review) => (
@@ -22,12 +22,13 @@ export default function CamperReviews({ reviews }: CamperReviewsProps) {
                 <div>
                   <p className={css.name}>{review.reviewer_name}</p>
                   <p className={css.meta}>
-                    {"⭐".repeat(review.reviewer_rating)} &nbsp;
-                    {new Date(review.createdAt).toLocaleDateString("uk-UA", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
+                    <span className={css.stars}>
+                      {Array.from({ length: review.reviewer_rating }).map((_, i) => (
+                        <svg key={i} className={css.starIcon} aria-hidden="true">
+                          <use href="/icons.svg#star" />
+                        </svg>
+                      ))}
+                    </span>
                   </p>
                 </div>
               </div>

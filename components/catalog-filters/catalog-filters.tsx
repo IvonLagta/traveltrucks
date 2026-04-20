@@ -25,18 +25,23 @@ export default function CatalogFilters({
       <div className={css.content}>
         <label className={css.field}>
           <span className={css.label}>Location</span>
-          <input
-            type="text"
-            placeholder="Kyiv, Ukraine"
-            value={pendingFilters.location ?? ""}
-            onChange={(e) =>
-              onPendingFiltersChange((prev) => ({
-                ...prev,
-                location: e.target.value || undefined,
-              }))
-            }
-            className={css.input}
-          />
+          <div className={css.locationField}>
+            <svg className={css.locationIcon} aria-hidden="true">
+              <use href="/icons.svg#map" />
+            </svg>
+            <input
+              type="text"
+              placeholder="Kyiv, Ukraine"
+              value={pendingFilters.location ?? ""}
+              onChange={(e) =>
+                onPendingFiltersChange((prev) => ({
+                  ...prev,
+                  location: e.target.value || undefined,
+                }))
+              }
+              className={css.input}
+            />
+          </div>
         </label>
         <h3 className={css.title}>Filters</h3>
         <FilterRadioGroup

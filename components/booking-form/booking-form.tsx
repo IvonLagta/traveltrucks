@@ -12,7 +12,6 @@ interface BookingFormProps {
 export default function BookingForm({ camperId }: BookingFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [date, setDate] = useState("");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
@@ -31,54 +30,48 @@ export default function BookingForm({ camperId }: BookingFormProps) {
         email: email.trim(),
       });
       setStatus("success");
-      setMessage(response.message || "Бронювання успішно надіслано!");
+      setMessage(response.message || "Booking request sent successfully!");
       setName("");
       setEmail("");
-      setDate("");
     } catch {
       setStatus("error");
-      setMessage("Помилка надсилання. Спробуйте ще раз.");
+      setMessage("Error sending request. Please try again.");
     }
   }
 
   return (
     <form onSubmit={handleSubmit} className={css.form}>
-      <h3 className={css.title}>Забронювати</h3>
-
-      <label className={css.field}>
-        <span className={css.label}>Ім&apos;я</span>
-        <input
-          type="text"
-          required
-          placeholder="Іван Петренко"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className={css.input}
-        />
-      </label>
-
-      <label className={css.field}>
-        <span className={css.label}>Email</span>
-        <input
-          type="email"
-          required
-          placeholder="ivan@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className={css.input}
-        />
-      </label>
-
-      <label className={css.field}>
-        <span className={css.label}>Дата бронювання</span>
-        <input
-          type="date"
-          value={date}
-          min={new Date().toISOString().split("T")[0]}
-          onChange={(e) => setDate(e.target.value)}
-          className={css.input}
-        />
-      </label>
+      <h3 className={css.title}>Book your campervan now</h3>
+      <p className={css.description}>
+        {" "}
+        Stay connected! We are here to help you.{" "}
+      </p>
+      <ul className={css.inputList}>
+        <li className={css.inputItem}>
+          <label className={css.field}>
+            <input
+              type="text"
+              required
+              placeholder="Name*"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className={css.input}
+            />
+          </label>
+        </li>
+        <li className={css.inputItem}>
+          <label className={css.field}>
+            <input
+              type="email"
+              required
+              placeholder="Email*"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className={css.input}
+            />
+          </label>
+        </li>
+      </ul>
 
       {status === "success" && <p className={css.success}>{message}</p>}
       {status === "error" && <p className={css.error}>{message}</p>}
@@ -88,7 +81,7 @@ export default function BookingForm({ camperId }: BookingFormProps) {
         disabled={status === "loading"}
         variant="mainBtn"
         className={css.submitButton}>
-        {status === "loading" ? "Надсилання..." : "Надіслати запит"}
+        {status === "loading" ? "Sending..." : "Send"}
       </Button>
     </form>
   );
