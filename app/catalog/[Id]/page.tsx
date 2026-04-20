@@ -36,9 +36,9 @@ export default async function CamperDetailPage({ params }: PageProps) {
   }
 
   const formatAmenityLabel = (value: string) =>
-    value
-      .replace(/_/g, " ")
-      .replace(/\b\w/g, (char) => char.toUpperCase());
+    value.replace(/_/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
+  const formatFormValue = (value: string) =>
+    value.replace(/[-_]/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
 
   return (
     <main className={css.page}>
@@ -84,7 +84,9 @@ export default async function CamperDetailPage({ params }: PageProps) {
               <ul className={css.specsList}>
                 <li className={css.specsItem}>
                   <span className={css.specsLabel}>Form</span>
-                  <span className={css.specsValue}>{camper.form}</span>
+                  <span className={css.specsValue}>
+                    {formatFormValue(camper.form)}
+                  </span>
                 </li>
                 <li className={css.specsItem}>
                   <span className={css.specsLabel}>Length</span>

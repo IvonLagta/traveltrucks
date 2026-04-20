@@ -36,3 +36,15 @@
 .submitButton {
   width: 527px;
 }
+.success {
+  background-color: #f7f7f7;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+.error {
+  background-color: #ffe4e6;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 24px;
+}

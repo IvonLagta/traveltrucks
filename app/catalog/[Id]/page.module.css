@@ -29,15 +29,21 @@
   display: flex;
   padding-bottom: 16px;
   gap: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
 }
 
 .icon {
   width: 16px;
   height: 16px;
+  margin-right: 4px;
 }
 .iconStar {
   width: 16px;
   height: 16px;
+  margin-right: 4px;
+  color: #ffc531;
 }
 .price {
   font-weight: 600;
@@ -104,6 +110,18 @@
 
 .specsLabel {
   color: #475467;
+}
+
+.icon,
+.iconStar {
+  flex-shrink: 0;
+}
+
+.icon path,
+.icon use,
+.iconStar path,
+.iconStar use {
+  fill: currentColor;
 }
 
 .bottomSection {

@@ -15,12 +15,9 @@
 .locationIcon {
   position: absolute;
   left: 20px;
-  top: 50%;
+  top: 18px;
   width: 20px;
   height: 20px;
-  transform: translateY(-50%);
-  color: #101828;
-  pointer-events: none;
 }
 
 .locationIcon path,

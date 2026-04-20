@@ -6,6 +6,8 @@ interface CamperReviewsProps {
 }
 
 export default function CamperReviews({ reviews }: CamperReviewsProps) {
+  const maxStars = 5;
+
   return (
     <section className={css.section}>
       <h2 className={css.title}>Reviews</h2>
@@ -23,11 +25,18 @@ export default function CamperReviews({ reviews }: CamperReviewsProps) {
                   <p className={css.name}>{review.reviewer_name}</p>
                   <p className={css.meta}>
                     <span className={css.stars}>
-                      {Array.from({ length: review.reviewer_rating }).map((_, i) => (
-                        <svg key={i} className={css.starIcon} aria-hidden="true">
-                          <use href="/icons.svg#star" />
-                        </svg>
-                      ))}
+                      {Array.from({ length: maxStars }).map((_, i) => {
+                        const isActive = i < review.reviewer_rating;
+
+                        return (
+                          <svg
+                            key={i}
+                            className={`${css.starIcon} ${isActive ? css.starIconActive : css.starIconInactive}`}
+                            aria-hidden="true">
+                            <use href="/icons.svg#star" />
+                          </svg>
+                        );
+                      })}
                     </span>
                   </p>
                 </div>

@@ -105,7 +105,7 @@ export default function CamperCard({ camper }: CamperCardProps) {
         </div>
         <div className={css.details}>
           <p className={css.detailItem}>
-            <svg className={css.icon16} aria-hidden="true">
+            <svg className={css.iconStar} aria-hidden="true">
               <use href="/icons.svg#star" />
             </svg>
             {camper.rating.toFixed(1)}({camper.totalReviews} Reviews)

@@ -42,6 +42,10 @@
   color: #475467;
 }
 
+.name {
+  padding-bottom: 4px;
+}
+
 .meta {
   margin: 0;
 }
@@ -56,4 +60,17 @@
   width: 16px;
   height: 16px;
   flex-shrink: 0;
+}
+
+.starIconActive {
+  color: #ffc531;
+}
+
+.starIconInactive {
+  color: #dadde1;
+}
+
+.starIcon path,
+.starIcon use {
+  fill: currentColor;
 }
