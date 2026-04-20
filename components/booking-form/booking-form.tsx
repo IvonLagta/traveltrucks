@@ -85,7 +85,7 @@ export default function BookingForm({ camperId }: BookingFormProps) {
         <Button
           type="submit"
           disabled={isLoading}
-          variant="mainBtn"
+          variant="primaryButton"
           className={css.submitButton}>
           {isLoading ? "Sending..." : "Send"}
         </Button>

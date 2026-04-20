@@ -4,7 +4,7 @@ import css from "./button.module.css";
 
 export default function Button({
   children,
-  variant = "mainBtn",
+  variant = "primaryButton",
   className,
   href,
   target,

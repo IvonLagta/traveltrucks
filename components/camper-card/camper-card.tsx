@@ -20,14 +20,14 @@ export default function CamperCard({ camper }: CamperCardProps) {
       key: "engine",
       value: camper.engine,
       icon: "gas",
-      iconClass: css.icon20,
+      iconClass: css.iconMedium,
     },
-    { key: "form", value: camper.form, icon: "car", iconClass: css.icon20 },
+    { key: "form", value: camper.form, icon: "car", iconClass: css.iconMedium },
     {
       key: "transmission",
       value: camper.transmission,
       icon: "kpp",
-      iconClass: css.icon20,
+      iconClass: css.iconMedium,
     },
   ];
   const activeImageSrc = imageCandidates[activeImageIndex] || "/bgImage.jpg";
@@ -108,7 +108,7 @@ export default function CamperCard({ camper }: CamperCardProps) {
             {camper.rating.toFixed(1)}({camper.totalReviews} Reviews)
           </p>
           <p className={css.detailItem}>
-            <svg className={css.icon16} aria-hidden="true">
+            <svg className={css.iconSmall} aria-hidden="true">
               <use href="/icons.svg#map" />
             </svg>
             {formatLocation(camper.location)}
@@ -133,7 +133,7 @@ export default function CamperCard({ camper }: CamperCardProps) {
           href={`/catalog/${camper.id}`}
           target="_blank"
           rel="noopener noreferrer"
-          variant="mainBtn"
+          variant="primaryButton"
           className={css.link}>
           Show More
         </Button>

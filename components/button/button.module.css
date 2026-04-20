@@ -18,26 +18,26 @@
     color 180ms ease;
 }
 
-.mainBtn {
+.primaryButton {
   background-color: #829b91;
   color: #ffffff;
 }
 
-.clearBtn {
+.secondaryButton {
   border: 1px solid transparent;
   background-color: #ffffff;
-  color: #101828;
+  color: var(--text-primary);
   border-color: #dadde1;
 }
 
 @media (hover: hover) {
-  .mainBtn:hover,
-  .mainBtn:focus-visible {
+  .primaryButton:hover,
+  .primaryButton:focus-visible {
     background-color: #6d7b75;
   }
 
-  .clearBtn:hover,
-  .clearBtn:focus-visible {
+  .secondaryButton:hover,
+  .secondaryButton:focus-visible {
     border-color: #6d7b75;
   }
 }

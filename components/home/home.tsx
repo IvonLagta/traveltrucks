@@ -11,7 +11,7 @@ export default function HomeHero() {
       <p className={css.subtitle}>
         You can find everything you want in our catalog
       </p>
-      <Button href="/catalog" variant="mainBtn" className={css.viewBtn}>
+      <Button href="/catalog" variant="primaryButton" className={css.viewBtn}>
         View Now
       </Button>
     </section>

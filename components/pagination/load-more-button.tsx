@@ -12,7 +12,7 @@ export default function LoadMoreButton({
         type="button"
         onClick={onClick}
         disabled={isLoading}
-        variant="clearBtn"
+        variant="secondaryButton"
         className={css.button}>
         {isLoading ? "Loading..." : "Load More"}
       </Button>

@@ -27,8 +27,8 @@ export default function CamperGallery({
 
   return (
     <section className={styles.section}>
-      <div className={styles.mainFrame}>
-        <div className={styles.mainSlide}>
+      <div className={styles.galleryContainer}>
+        <div className={styles.galleryMainImage}>
           <Image
             src={activeImage.original}
             alt={`${camperName} - photo ${activeIndex + 1}`}

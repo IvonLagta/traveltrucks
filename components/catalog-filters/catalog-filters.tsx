@@ -74,10 +74,10 @@ export default function CatalogFilters({
         />
 
         <div className={css.actions}>
-          <Button type="button" onClick={onApply} variant="mainBtn">
+          <Button type="button" onClick={onApply} variant="primaryButton">
             Search
           </Button>
-          <Button type="button" onClick={onReset} variant="clearBtn">
+          <Button type="button" onClick={onReset} variant="secondaryButton">
             Clear filters
           </Button>
         </div>

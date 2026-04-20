@@ -5,7 +5,7 @@
   gap: 28px;
 }
 
-.mainFrame {
+.galleryContainer {
   width: 638px;
   height: 505px;
   border-radius: 17px;
@@ -13,7 +13,7 @@
   position: relative;
 }
 
-.mainSlide {
+.galleryMainImage {
   position: relative;
   width: 638px;
   height: 505px;
@@ -56,24 +56,4 @@
 
 .image {
   object-fit: cover;
-}
-
-.edgeZone {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  z-index: 10;
-  width: 96px;
-  padding: 0;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-}
-
-.edgeZonePrev {
-  left: 12px;
-}
-
-.edgeZoneNext {
-  right: 12px;
 }

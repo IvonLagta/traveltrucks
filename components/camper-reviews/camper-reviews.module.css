@@ -19,7 +19,7 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 133%;
-  color: #101828;
+  color: var(--text-primary);
   margin-bottom: 24px;
 }
 .avatar {

@@ -17,7 +17,7 @@
 }
 
 .option {
-  color: #101828;
+  color: var(--text-primary);
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -25,7 +25,7 @@
 }
 
 .optionActive {
-  color: #101828;
+  color: var(--text-primary);
 }
 
 .input {
