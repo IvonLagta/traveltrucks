@@ -10,7 +10,8 @@ export default function SiteHeader() {
     pathname === "/catalog" || pathname.startsWith("/catalog/");
 
   return (
-    <header className={css.header}>
+    <header
+      className={`${css.header} ${isCatalogActive ? css.catalogHeader : ""}`}>
       <div className="container">
         <div className={css.headerContainer}>
           <div className={css.logo}>

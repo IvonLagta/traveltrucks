@@ -1,12 +1,10 @@
-.filters {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
 .name {
-  margin: 0;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #6c717b;
+  padding-bottom: 8px;
+  margin-top: 24px;
 }
 
 .list {
@@ -14,15 +12,12 @@
   padding: 0;
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.filter {
-  margin: 0;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .option {
+  color: #101828;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -30,11 +25,39 @@
 }
 
 .optionActive {
-  font-weight: 600;
+  color: #101828;
 }
 
 .input {
   margin: 0;
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  border: 1.5px solid #475467;
+  border-radius: 50%;
+  background: transparent;
+  display: grid;
+  place-content: center;
+  flex-shrink: 0;
+}
+
+.input::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #475467;
+  transform: scale(0);
+  transition: transform 140ms ease-in-out;
+}
+
+.input:checked::before {
+  transform: scale(1);
+}
+
+.input:focus-visible {
+  outline: 2px solid #475467;
+  outline-offset: 2px;
 }
 
 .text {
