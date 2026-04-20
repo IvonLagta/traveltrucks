@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { MiddleTruncate } from "@re-dev/react-truncate";
 import Button from "@/components/button/button";
 import { CamperListItemDto } from "@/lib/camperApi";
 import css from "./camper-card.module.css";
@@ -30,31 +31,40 @@ export default function CamperCard({ camper }: CamperCardProps) {
           src={camper.coverImage}
           alt={camper.name}
           fill
-          sizes="(max-width: 767px) 100vw, 320px"
+          sizes="(max-width: 1023px) 100vw, 292px"
           className={css.image}
         />
       </div>
-      <div className={css.header}>
-        <h2 className={css.name}>{camper.name}</h2>
-        <span className={css.price}>€{camper.price.toLocaleString()}</span>
+      <div className={css.info}>
+        <div className={css.header}>
+          <h2 className={css.name}>{camper.name}</h2>
+          <span className={css.price}>€{camper.price.toLocaleString()}</span>
+        </div>
+        <div className={css.details}>
+          <p className={css.rating}>
+            ⭐ {camper.rating.toFixed(1)}({camper.totalReviews} Reviews)
+          </p>
+          <p className={css.location}>{formatLocation(camper.location)}</p>
+        </div>
+
+        <div className={css.description}>
+          <MiddleTruncate end={0}>{camper.description}</MiddleTruncate>
+        </div>
+
+        <div className={css.amenities}>
+          {featureChips.map((item) => (
+            <span key={item} className={css.amenity}>
+              {formatFeatureLabel(item)}
+            </span>
+          ))}
+        </div>
+        <Button
+          href={`/catalog/${camper.id}`}
+          variant="mainBtn"
+          className={css.link}>
+          Show More
+        </Button>
       </div>
-      <p className={css.meta}>{formatLocation(camper.location)}</p>
-      <p className={css.rating}>
-        ⭐ {camper.rating.toFixed(1)} · {camper.totalReviews} Reviews
-      </p>
-      <div className={css.amenities}>
-        {featureChips.map((item) => (
-          <span key={item} className={css.amenity}>
-            {formatFeatureLabel(item)}
-          </span>
-        ))}
-      </div>
-      <Button
-        href={`/catalog/${camper.id}`}
-        variant="mainBtn"
-        className={css.link}>
-        Show More
-      </Button>
     </article>
   );
 }

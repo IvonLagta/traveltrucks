@@ -1,14 +1,87 @@
 .card {
   background-color: #f7f7f7;
+  width: 888px;
+  height: 312px;
+  display: flex;
+  border-radius: 16px;
 }
 
 .imageWrap {
   position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
+  width: 219px;
+  height: 240px;
   overflow: hidden;
+  border-radius: 16px;
+  margin: 24px 24px 48px;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+  margin: 24px 98px 24px 0;
+  flex-grow: 1;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  text-wrap-mode: nowrap;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 133%;
+  padding-bottom: 8px;
 }
 
-.image {
-  object-fit: cover;
+.name {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  color: #101828;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: 700;
+  color: #101828;
+}
+.details {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #101828;
+  margin-bottom: 24px;
+}
+
+.description {
+  width: 525px;
+  margin-bottom: 24px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: #475467;
+}
+
+.amenities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.amenity {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 18px;
+  border-radius: 100px;
+  background: #f2f4f7;
+  color: #344054;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-align: center;
+}
+.link {
+  max-width: 173px;
 }

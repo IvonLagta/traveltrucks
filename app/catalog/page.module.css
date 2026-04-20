@@ -29,12 +29,15 @@
 }
 
 .grid {
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   gap: 1.5rem;
 }
 
 .skeleton {
-  height: 20rem;
+  width: min(100%, 888px);
+  height: 312px;
   border-radius: 1.5rem;
   background: #e2e8f0;
   animation: pulse 1.6s ease-in-out infinite;
@@ -54,12 +57,6 @@
   padding: 2.5rem;
   text-align: center;
   color: #64748b;
-}
-
-@media (min-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
 }
 
 @media (min-width: 1024px) {
