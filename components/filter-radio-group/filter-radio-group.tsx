@@ -1,12 +1,5 @@
+import type { FilterRadioGroupProps } from "@/types/types";
 import css from "./filter-radio-group.module.css";
-
-interface FilterRadioGroupProps {
-  label: string;
-  name: string;
-  options: string[];
-  value?: string;
-  onChange: (value?: string) => void;
-}
 
 export default function FilterRadioGroup({
   label,

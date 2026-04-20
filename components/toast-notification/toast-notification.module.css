@@ -1,0 +1,38 @@
+.container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 400px;
+  opacity: 0;
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.success {
+  background-color: #10b981;
+  color: white;
+}
+
+.error {
+  background-color: #ef4444;
+  color: white;
+}
+
+.message {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}

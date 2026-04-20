@@ -3,12 +3,9 @@ import { isAxiosError } from "axios";
 import BookingForm from "@/components/booking-form/booking-form";
 import CamperGallery from "@/components/camper-gallery/camper-gallery";
 import CamperReviews from "@/components/camper-reviews/camper-reviews";
-import { getCamperById, getCamperReviews } from "@/lib/camperApi";
+import { getCamperById, getCamperReviews } from "@/lib/api/serverApi";
+import type { PageProps } from "@/types/types";
 import css from "./page.module.css";
-
-interface PageProps {
-  params: Promise<{ Id: string }>;
-}
 
 export default async function CamperDetailPage({ params }: PageProps) {
   const { Id: camperId } = await params;

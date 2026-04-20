@@ -1,20 +1,14 @@
 import Link from "next/link";
-import { ButtonHTMLAttributes, ReactNode } from "react";
+import type { ButtonProps, ButtonVariant } from "@/types/types";
 import css from "./button.module.css";
-
-type ButtonVariant = "mainBtn" | "clearBtn";
-
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-  variant?: ButtonVariant;
-  href?: string;
-}
 
 export default function Button({
   children,
   variant = "mainBtn",
   className,
   href,
+  target,
+  rel,
   ...props
 }: ButtonProps) {
   const variantClass = css[variant];
@@ -24,7 +18,7 @@ export default function Button({
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} className={classes} target={target} rel={rel}>
         {children}
       </Link>
     );

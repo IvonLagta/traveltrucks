@@ -2,13 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { CamperImageEntity } from "@/lib/camperApi";
+import type { CamperGalleryProps } from "@/types/types";
 import styles from "./camper-gallery.module.css";
-
-interface CamperGalleryProps {
-  camperName: string;
-  gallery: CamperImageEntity[];
-}
 
 export default function CamperGallery({
   camperName,
@@ -36,7 +31,7 @@ export default function CamperGallery({
         <div className={styles.mainSlide}>
           <Image
             src={activeImage.original}
-            alt={`${camperName} — фото ${activeIndex + 1}`}
+            alt={`${camperName} - photo ${activeIndex + 1}`}
             fill
             sizes="638px"
             className={styles.image}
@@ -70,7 +65,7 @@ export default function CamperGallery({
             <div className={styles.thumbWrap}>
               <Image
                 src={image.original}
-                alt={`${camperName} — мініатюра ${index + 1}`}
+                alt={`${camperName} - thumbnail ${index + 1}`}
                 fill
                 sizes="136px"
                 className={styles.image}

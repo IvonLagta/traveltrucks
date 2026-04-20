@@ -1,17 +1,7 @@
-import { CamperFilters, FiltersResponseDto } from "@/lib/camperApi";
 import FilterRadioGroup from "@/components/filter-radio-group/filter-radio-group";
 import Button from "@/components/button/button";
+import type { CatalogFiltersProps } from "@/types/types";
 import css from "./catalog-filters.module.css";
-
-interface CatalogFiltersProps {
-  filterOptions?: FiltersResponseDto;
-  pendingFilters: CamperFilters;
-  onPendingFiltersChange: (
-    updater: (prev: CamperFilters) => CamperFilters,
-  ) => void;
-  onApply: () => void;
-  onReset: () => void;
-}
 
 export default function CatalogFilters({
   filterOptions,

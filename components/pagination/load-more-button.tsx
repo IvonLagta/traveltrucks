@@ -1,10 +1,6 @@
 import Button from "@/components/button/button";
+import type { LoadMoreButtonProps } from "@/types/types";
 import css from "./load-more-button.module.css";
-
-interface LoadMoreButtonProps {
-  isLoading: boolean;
-  onClick: () => void;
-}
 
 export default function LoadMoreButton({
   isLoading,

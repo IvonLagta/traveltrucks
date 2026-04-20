@@ -17,6 +17,7 @@ body {
 
 html {
   font-family: var(--font-inter), sans-serif;
+  scrollbar-gutter: stable;
 }
 
 body {

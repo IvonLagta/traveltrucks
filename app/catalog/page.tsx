@@ -5,13 +5,9 @@ import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
 import CamperCard from "@/components/camper-card/camper-card";
 import CatalogFilters from "@/components/catalog-filters/catalog-filters";
 import LoadMoreButton from "@/components/pagination/load-more-button";
+import type { CamperFilters, CamperListItemDto } from "@/types/types";
 import css from "./page.module.css";
-import {
-  getAllCampers,
-  getCamperFilters,
-  CamperListItemDto,
-  CamperFilters,
-} from "@/lib/camperApi";
+import { getAllCampers, getCamperFilters } from "@/lib/api/clientApi";
 
 const PER_PAGE = 4;
 

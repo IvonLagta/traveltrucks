@@ -1,9 +1,5 @@
-import { ReviewEntity } from "@/lib/camperApi";
+import type { CamperReviewsProps } from "@/types/types";
 import css from "./camper-reviews.module.css";
-
-interface CamperReviewsProps {
-  reviews: ReviewEntity[];
-}
 
 export default function CamperReviews({ reviews }: CamperReviewsProps) {
   const maxStars = 5;

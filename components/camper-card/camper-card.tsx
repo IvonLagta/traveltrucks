@@ -4,12 +4,9 @@ import { useCallback, useState } from "react";
 import Image from "next/image";
 import { MiddleTruncate } from "@re-dev/react-truncate";
 import Button from "@/components/button/button";
-import { CamperListItemDto, getCamperById } from "@/lib/camperApi";
+import { getCamperById } from "@/lib/api/clientApi";
+import type { CamperCardProps } from "@/types/types";
 import css from "./camper-card.module.css";
-
-interface CamperCardProps {
-  camper: CamperListItemDto;
-}
 
 export default function CamperCard({ camper }: CamperCardProps) {
   const [imageCandidates, setImageCandidates] = useState<string[]>([
@@ -134,6 +131,8 @@ export default function CamperCard({ camper }: CamperCardProps) {
         </div>
         <Button
           href={`/catalog/${camper.id}`}
+          target="_blank"
+          rel="noopener noreferrer"
           variant="mainBtn"
           className={css.link}>
           Show More
