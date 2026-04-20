@@ -1,0 +1,43 @@
+.legend {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.group {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.option {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  gap: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #e2e8f0;
+  padding: 0.625rem 0.75rem;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.option:hover {
+  background: #f8fafc;
+}
+
+.optionActive {
+  border-color: #0f172a;
+  background: #f1f5f9;
+}
+
+.input {
+  height: 1rem;
+  width: 1rem;
+  accent-color: #0f172a;
+}
+
+.text {
+  font-size: 0.875rem;
+  color: #334155;
+}
