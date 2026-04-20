@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Button from "@/components/button/button";
 import { createBookingRequest } from "@/lib/camperApi";
 import css from "./booking-form.module.css";
 
@@ -82,12 +83,13 @@ export default function BookingForm({ camperId }: BookingFormProps) {
       {status === "success" && <p className={css.success}>{message}</p>}
       {status === "error" && <p className={css.error}>{message}</p>}
 
-      <button
+      <Button
         type="submit"
         disabled={status === "loading"}
+        variant="mainBtn"
         className={css.submitButton}>
         {status === "loading" ? "Надсилання..." : "Надіслати запит"}
-      </button>
+      </Button>
     </form>
   );
 }

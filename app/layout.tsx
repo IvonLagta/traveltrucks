@@ -24,10 +24,8 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${css.html}`}>
       <body className={css.body}>
         <Providers>
-          <div className={css.container}>
-            <SiteHeader />
-            <main className={css.main}>{children}</main>
-          </div>
+          <SiteHeader />
+          <main className="container">{children}</main>
         </Providers>
       </body>
     </html>

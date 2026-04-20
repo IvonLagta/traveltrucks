@@ -16,27 +16,30 @@ export default function FilterRadioGroup({
   onChange,
 }: FilterRadioGroupProps) {
   return (
-    <fieldset>
-      <legend className={css.legend}>{label}</legend>
-      <div className={css.group}>
+    <div className={css.filters}>
+      <p className={css.name}>{label}</p>
+      <ul className={css.list}>
         {options.map((option) => (
-          <label
-            key={option}
-            className={`${css.option} ${value === option ? css.optionActive : ""}`}>
-            <input
-              type="radio"
-              name={name}
-              checked={value === option}
-              onClick={() => onChange(value === option ? undefined : option)}
-              onChange={() => undefined}
-              className={css.input}
-            />
-            <span className={css.text}>
-              {option.replace(/_/g, " ").replace(/^\w/, (c) => c.toUpperCase())}
-            </span>
-          </label>
+          <li key={option} className={css.filter}>
+            <label
+              className={`${css.option} ${value === option ? css.optionActive : ""}`}>
+              <input
+                type="radio"
+                name={name}
+                checked={value === option}
+                onClick={() => onChange(value === option ? undefined : option)}
+                onChange={() => undefined}
+                className={css.input}
+              />
+              <span className={css.text}>
+                {option
+                  .replace(/_/g, " ")
+                  .replace(/^\w/, (c) => c.toUpperCase())}
+              </span>
+            </label>
+          </li>
         ))}
-      </div>
-    </fieldset>
+      </ul>
+    </div>
   );
 }

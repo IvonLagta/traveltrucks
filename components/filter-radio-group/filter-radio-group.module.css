@@ -1,43 +1,42 @@
-.legend {
-  display: block;
-  margin-bottom: 0.75rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #334155;
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.group {
-  display: grid;
-  gap: 0.5rem;
+.name {
+  margin: 0;
+  font-weight: 600;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.filter {
+  margin: 0;
 }
 
 .option {
-  display: flex;
-  cursor: pointer;
+  display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
-  border-radius: 0.75rem;
-  border: 1px solid #e2e8f0;
-  padding: 0.625rem 0.75rem;
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.option:hover {
-  background: #f8fafc;
+  gap: 8px;
+  cursor: pointer;
 }
 
 .optionActive {
-  border-color: #0f172a;
-  background: #f1f5f9;
+  font-weight: 600;
 }
 
 .input {
-  height: 1rem;
-  width: 1rem;
-  accent-color: #0f172a;
+  margin: 0;
 }
 
 .text {
-  font-size: 0.875rem;
-  color: #334155;
+  line-height: 1.2;
 }

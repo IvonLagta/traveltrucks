@@ -9,11 +9,11 @@ import { getCamperById, getCamperReviews } from "@/lib/camperApi";
 import css from "./page.module.css";
 
 interface PageProps {
-  params: Promise<{ camperId: string }>;
+  params: Promise<{ Id: string }>;
 }
 
 export default async function CamperDetailPage({ params }: PageProps) {
-  const { camperId } = await params;
+  const { Id: camperId } = await params;
 
   let camper;
   let reviews;

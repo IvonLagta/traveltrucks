@@ -1,3 +1,4 @@
+import Button from "@/components/button/button";
 import css from "./load-more-button.module.css";
 
 interface LoadMoreButtonProps {
@@ -11,13 +12,14 @@ export default function LoadMoreButton({
 }: LoadMoreButtonProps) {
   return (
     <div className={css.wrap}>
-      <button
+      <Button
         type="button"
         onClick={onClick}
         disabled={isLoading}
+        variant="clearBtn"
         className={css.button}>
         {isLoading ? "Loading..." : "Load More"}
-      </button>
+      </Button>
     </div>
   );
 }

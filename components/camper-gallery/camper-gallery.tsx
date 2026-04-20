@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { CamperImageEntity } from "@/lib/camperApi";
 import styles from "./camper-gallery.module.css";
 
@@ -21,9 +22,11 @@ export default function CamperGallery({
           <div
             key={image.id}
             className={`${styles.item} ${index === 0 ? styles.itemMain : ""}`}>
-            <img
+            <Image
               src={image.original}
               alt={`${camperName} — фото ${index + 1}`}
+              fill
+              sizes="(max-width: 767px) 100vw, 50vw"
               className={styles.image}
             />
           </div>

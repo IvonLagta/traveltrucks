@@ -1,32 +1,10 @@
-.section {
-  margin-bottom: 2rem;
-}
-
-.grid {
-  display: grid;
-  gap: 0.75rem;
-}
-
 .item {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
   overflow: hidden;
-  border-radius: 1.5rem;
-  background: #f1f5f9;
-}
-
-.itemMain {
-  grid-column: span 2;
-  grid-row: span 2;
 }
 
 .image {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: 16 / 9;
   object-fit: cover;
-}
-
-@media (min-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }

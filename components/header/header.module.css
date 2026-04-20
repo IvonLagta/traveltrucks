@@ -1,47 +1,40 @@
-.header {
-  background: rgba(0, 255, 255, 0.9);
-  min-height: 71px;
-}
-
 .headerContainer {
-  padding: 0 64px;
   display: flex;
-  align-items: center;
-  width: 100%;
+  flex-direction: row;
+  max-height: 72px;
 }
 .logo {
-  padding: 28px 0;
+  margin: auto 0;
+  font-weight: 900;
+  font-size: 17px;
 }
-.logoMain {
-  font-size: 18px;
-  font-weight: 800;
-  color: #0f172a;
-  text-decoration: none;
-  padding: 28px 0;
-}
-
 .logoAccent {
   color: #475467;
 }
-
 .nav {
-  padding: 24px 0;
   margin: 0 auto;
+  padding: 24px 0;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
-  text-align: center;
+}
+.navList {
+  display: flex;
   gap: 32px;
 }
 
 .link {
-  border-radius: 999px;
-  padding: 0.5rem 0.75rem;
   color: inherit;
-  text-decoration: none;
-  transition: background 0.2s ease;
+  transition: color 200ms ease-in-out;
 }
 
-.linkActive {
+.activeLink {
   color: #829b91;
+}
+
+@media (hover: hover) {
+  .catalogLink:hover,
+  .catalogLink:focus-visible {
+    color: #829b91;
+  }
 }

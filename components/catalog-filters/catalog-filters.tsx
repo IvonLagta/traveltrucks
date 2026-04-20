@@ -1,5 +1,6 @@
 import { CamperFilters, FiltersResponseDto } from "@/lib/camperApi";
 import FilterRadioGroup from "@/components/filter-radio-group/filter-radio-group";
+import Button from "@/components/button/button";
 import css from "./catalog-filters.module.css";
 
 interface CatalogFiltersProps {
@@ -81,12 +82,12 @@ export default function CatalogFilters({
           />
 
           <div className={css.actions}>
-            <button type="button" onClick={onApply} className={css.applyButton}>
+            <Button type="button" onClick={onApply} variant="mainBtn">
               Apply
-            </button>
-            <button type="button" onClick={onReset} className={css.resetButton}>
+            </Button>
+            <Button type="button" onClick={onReset} variant="clearBtn">
               Reset
-            </button>
+            </Button>
           </div>
         </div>
       </div>
