@@ -73,8 +73,8 @@ export default function CatalogPage() {
         <main className={css.main}>
           {isError && (
             <div className={css.error}>
-              Помилка завантаження:{" "}
-              {error instanceof Error ? error.message : "Невідома помилка"}
+              Error loading data:{" "}
+              {error instanceof Error ? error.message : "Unknown error"}
             </div>
           )}
 
@@ -102,13 +102,13 @@ export default function CatalogPage() {
 
           {!isPending && !hasNextPage && allCampers.length > 0 && (
             <p className={css.resultCount}>
-              Показано всі {allCampers.length} кемперів
+              Showing all {allCampers.length} campervans
             </p>
           )}
 
           {!isPending && allCampers.length === 0 && !isError && (
             <div className={css.empty}>
-              За обраними фільтрами кемперів не знайдено.
+              No campervans were found matching your search criteria.
             </div>
           )}
         </main>
